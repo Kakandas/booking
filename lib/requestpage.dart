@@ -1,5 +1,7 @@
+import 'package:booking/main.dart';
 import 'package:booking/mainpage.dart';
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 class RequestPage extends StatefulWidget {
   const RequestPage({super.key});
@@ -64,6 +66,120 @@ class _RequestPageState extends State<RequestPage> {
               DropdownMenuEntry(label: 'Text', value: 'Label')
             ],
           ),
+          SizedBox(
+            height: 24,
+          ),
+          Flexible(
+            child: ListView.separated(
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                var textStyle = TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: customWhite);
+                return InkWell(
+                  onTap: () {
+                    showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Container(
+                            padding: EdgeInsets.all(24),
+                            height: MediaQuery.of(context).size.height,
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    InkWell(
+                                        onTap: () {},
+                                        child: Icon(
+                                          Symbols.close,
+                                          size: 32,
+                                        )),
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        InkWell(
+                                          onTap: () {},
+                                          child: Icon(
+                                            Symbols.delete_outline,
+                                            size: 32,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 12,
+                                        ),
+                                        InkWell(
+                                          onTap: () {},
+                                          child: Icon(
+                                            Symbols.edit_square_rounded,
+                                            size: 28,
+                                          ),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          );
+                        });
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(18),
+                        color: indigoDye),
+                    padding: EdgeInsets.symmetric(vertical: 24, horizontal: 32),
+                    child: Row(children: [
+                      Icon(Icons.radio_button_checked),
+                      SizedBox(
+                        width: 24,
+                      ),
+                      Flexible(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Nama',
+                                  style: textStyle,
+                                ),
+                                Text(
+                                  'Waktu',
+                                  style: textStyle,
+                                )
+                              ],
+                            ),
+                            Text(
+                              'D121211017',
+                              style: textStyle,
+                            ),
+                            Divider(
+                              color: customWhite,
+                            ),
+                            Text(
+                              'Mata Kuliah',
+                              style: textStyle,
+                            ),
+                          ],
+                        ),
+                      )
+                    ]),
+                  ),
+                );
+              },
+              separatorBuilder: (context, index) {
+                return SizedBox(
+                  height: 18,
+                );
+              },
+            ),
+          )
         ],
       ),
     );
