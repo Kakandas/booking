@@ -1,4 +1,4 @@
-import 'package:booking/homepage.dart';
+import 'package:booking/mainpage.dart';
 import 'package:flutter/material.dart';
 
 Color indigoDye = const Color(0xff004267);
@@ -130,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (BuildContext context) {
-                        return HomePage();
+                        return MainPage();
                       }));
                     },
                     child: const Text('LOGIN',
